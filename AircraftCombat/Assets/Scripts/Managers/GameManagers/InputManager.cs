@@ -21,6 +21,8 @@ namespace AirCraftCombat
 
         private void Update()
         {
+            if (Config.isGameComplete)
+                return;
             PlayerInput();
         }
 
