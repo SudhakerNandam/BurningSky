@@ -50,6 +50,8 @@ namespace AirCraftCombat
         {
             if (Config.highestUnlockedLevelIndex >= Config.totalLevels - 1)
                 return;
+            if (Config.currentLevelIndex < Config.highestUnlockedLevelIndex)
+                return;
 
             ++Config.highestUnlockedLevelIndex;
             PlayerPrefsManager.instance.SetHighhestLevelUnlocked(Config.highestUnlockedLevelIndex);
