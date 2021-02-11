@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147f588d34ddc2d45b341b3f9392e797, type: 3}
+  m_Name: LevelData
+  m_EditorClassIdentifier: 
+  levelData:
+  - minEnemySpeed: 1.5
+    maxEnemySpeed: 2.5
+    randomEnemySpwanStartTime: 1
+    randomEnemySpwanWaitTime: 2
+    randomEnemeisCount: 0
+    targetKills: 50
+    formations: 000000000100000003000000
+  - minEnemySpeed: 1.5
+    maxEnemySpeed: 3.5
+    randomEnemySpwanStartTime: 1
+    randomEnemySpwanWaitTime: 1.5
+    randomEnemeisCount: 5
+    targetKills: 60
+    formations: 00000000010000000200000003000000
+  - minEnemySpeed: 1.5
+    maxEnemySpeed: 4.5
+    randomEnemySpwanStartTime: 0.8
+    randomEnemySpwanWaitTime: 1
+    randomEnemeisCount: 10
+    targetKills: 80
+    formations: 0000000001000000020000000300000004000000
+  - minEnemySpeed: 1.5
+    maxEnemySpeed: 6
+    randomEnemySpwanStartTime: 0.5
+    randomEnemySpwanWaitTime: 0.8
+    randomEnemeisCount: 15
+    targetKills: 120
+    formations: 0000000001000000020000000300000004000000
+  - minEnemySpeed: 1.5
+    maxEnemySpeed: 7
+    randomEnemySpwanStartTime: 0.2
+    randomEnemySpwanWaitTime: 0.3
+    randomEnemeisCount: 25
+    targetKills: 150
+    formations: 0000000001000000020000000300000004000000

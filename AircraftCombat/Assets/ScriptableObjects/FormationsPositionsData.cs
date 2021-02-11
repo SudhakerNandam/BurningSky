@@ -1,0 +1,28 @@
+﻿using AirCraftCombat.CoreData;
+//using AirCraftCombat.Enemy;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace AirCraftCombat
+{
+    [CreateAssetMenu(fileName = "FormationsPositionsData", menuName = "ScriptableObjects/FormationsPositionsDataObject", order = 2)]
+    public class FormationsPositionsData : ScriptableObject
+    {
+        public List<FormationData> formationData = new List<FormationData>();
+    }
+
+    [System.Serializable]
+    public class FormationData
+    {
+        public Formation formation;
+        public PrefabType prefabType;
+        public List<FormationPoints> formationPoints = new List<FormationPoints>(); 
+    }
+
+    [System.Serializable]
+    public class FormationPoints
+    {
+        public List<Vector3> positions = new List<Vector3>();
+    }
+}
