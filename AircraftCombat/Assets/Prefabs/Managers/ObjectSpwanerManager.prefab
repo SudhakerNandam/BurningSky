@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4094294328833947829}
   - component: {fileID: 4094294328833947828}
   - component: {fileID: 4094294328833947835}
+  - component: {fileID: 6548093574867977902}
   m_Layer: 0
   m_Name: ObjectSpwanerManager
   m_TagString: Untagged
@@ -97,3 +98,22 @@ MonoBehaviour:
   pooleditems: []
   positionsData: {fileID: 11400000, guid: 412f3bc9566433a4a88445df6dc6daf4, type: 2}
   currentFormationType: 0
+--- !u!114 &6548093574867977902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094294328833947830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2501e7c3729b848bf2c022c2d8c7aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsToPool:
+  - objectToPool: {fileID: 643831712531675551, guid: c3055328f85a357478021096f1f9fda9,
+      type: 3}
+    amountToPool: 10
+    shouldExpand: 1
+    type: 0
+  pooleditems: []

@@ -39,4 +39,9 @@ namespace AirCraftCombat.CoreData
         Type_5 = 4
     }
 
+    public enum ParticleType
+    {
+        Damage = 0,
+    }
+
 }

@@ -129,6 +129,7 @@ namespace AirCraftCombat
             {
                 AirCraftCombatEventHandler.TriggerEvent(EventID.EVENT_ON_ENEMY_KILL, prefabType);
                 SoundManager.instance.PlayerExplosionSound();
+                ParticleSpwaner.instance.SpwanParticle(transform.position, ParticleType.Damage);
                 KillMe();
             }
         }
