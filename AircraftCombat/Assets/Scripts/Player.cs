@@ -24,10 +24,12 @@ namespace AirCraftCombat
         private float fireRate = 0.1f;
         private float lastShotTime = 0f;
 
-        private PowerUp powerType = PowerUp.None;
         private float health = 100f;
 
         private float currentHealth = 100f;
+
+        private bool isSpreadPowerupActivated = false;
+        private bool isShieldPowerUpActivated = false;
 
         #region Unity Methods
 
@@ -100,7 +102,7 @@ namespace AirCraftCombat
 
         public void TakeDamage(float damageAmount)
         {
-            if (powerType == PowerUp.Shield)
+            if (isShieldPowerUpActivated)
                 return;
             currentHealth -= damageAmount;
             AirCraftCombatEventHandler.TriggerEvent(EventID.EVENT_ON_UPDATE_PLAYER_HEALTH,(currentHealth / health) );
@@ -141,15 +143,16 @@ namespace AirCraftCombat
 
         private void Shoot()
         {
-            if (powerType == PowerUp.None || powerType == PowerUp.Shield)
+
+            if (isSpreadPowerupActivated)
+            {
+                SoundManager.instance.PlayerSpreadPowerUpSound();
+                ShootBullets(6);
+            }
+            else
             {
                 SoundManager.instance.PlayFireBulletsClip();
                 ShootBullets(4);
-            }
-            else if (powerType == PowerUp.Spread)
-            {
-                SoundManager.instance.PlayerSpreadPowerUpSound();
-                ShootBullets(6);  
             }
         }
 
@@ -170,10 +173,17 @@ namespace AirCraftCombat
             newBullet.Fire(newBullet.transform.forward);
         }
 
-        private void DisableShootingBoostPowerUp()
+        private void DeactivateSpreadPowerUp()
         {
+            isSpreadPowerupActivated = false;
+        }
+
+        private void DeactivateShieldPowerUp()
+        {
+            isShieldPowerUpActivated = false;
             ToggleShiledPowerUpObj(false);
-            powerType = PowerUp.None;
+
+
         }
 
         private void CheckDamage()
@@ -215,15 +225,15 @@ namespace AirCraftCombat
 
         private void EventOnSpreadPowerButtonClick(object arg)
         {
-            powerType = (PowerUp)arg;
-            Invoke("DisableShootingBoostPowerUp", 4f);
+            isSpreadPowerupActivated = true;
+            Invoke("DeactivateSpreadPowerUp", 4f);
         }
 
         private void EventOnShieldPowerButtonClick(object arg)
         {
-            powerType = (PowerUp)arg;
+            isShieldPowerUpActivated = true;
             ToggleShiledPowerUpObj(true);
-            Invoke("DisableShootingBoostPowerUp", 4f);
+            Invoke("DeactivateShieldPowerUp", 4f);
         }
 
         #endregion
