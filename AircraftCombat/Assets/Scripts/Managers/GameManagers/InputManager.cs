@@ -12,6 +12,8 @@ namespace AirCraftCombat
         private Vector3 endPosition = Vector3.zero;
         private Vector3 direction = Vector3.zero;
 
+        private Touch mobielTouch;
+
         #region Unity Methods
 
         private void Awake()
@@ -41,19 +43,52 @@ namespace AirCraftCombat
         /// </summary>
         private void PlayerInput()
         {
+            #if UNITY_EDITOR
+                DesktopInputs();
+            #elif UNITY_ANDROID
+                MobileInputs();
+            #endif
+        }
+
+        private void DesktopInputs()
+        {
             if (Input.GetMouseButtonDown(0))
                 UpdateStartingTouchPosition(mainCamera.ScreenToViewportPoint(Input.mousePosition));
-            if (Input.GetMouseButton(0))      
+            if (Input.GetMouseButton(0))
             {
                 UpdateEndTouchPosition(mainCamera.ScreenToViewportPoint(Input.mousePosition));
                 direction = endPosition - startPostion;
                 TriggerPlayerInput();
                 UpdateStartingTouchPosition(mainCamera.ScreenToViewportPoint(Input.mousePosition));
             }
-            if(Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0))
             {
                 direction = Vector3.zero;
                 TriggerPlayerInput();
+            }
+        }
+
+        private void MobileInputs()
+        {
+            if (Input.touchCount == 1)
+            {
+                mobielTouch = Input.GetTouch(0);
+                    if (mobielTouch.phase == TouchPhase.Began)
+                    {
+                        UpdateStartingTouchPosition(mainCamera.ScreenToViewportPoint(mobielTouch.position));
+                    }
+                    else if (mobielTouch.phase == TouchPhase.Moved)
+                    {
+                        UpdateEndTouchPosition(mainCamera.ScreenToViewportPoint(mobielTouch.position));
+                        direction = endPosition - startPostion;
+                        TriggerPlayerInput();
+                        UpdateStartingTouchPosition(mainCamera.ScreenToViewportPoint(mobielTouch.position));
+                    }
+                    else if (mobielTouch.phase == TouchPhase.Ended)
+                    {
+                        direction = Vector3.zero;
+                        TriggerPlayerInput();
+                    }
             }
         }
 
