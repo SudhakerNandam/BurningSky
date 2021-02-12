@@ -186,6 +186,7 @@ MonoBehaviour:
   healthBar: {fileID: 3448947840583214254}
   bulletSpwanPositions:
   - {fileID: 5012267471479000682}
+  damageAmount: 2
 --- !u!64 &5280670647125464369
 MeshCollider:
   m_ObjectHideFlags: 0

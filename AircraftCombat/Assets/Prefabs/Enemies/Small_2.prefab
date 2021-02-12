@@ -244,6 +244,7 @@ MonoBehaviour:
   healthBar: {fileID: 3667374806663585186}
   bulletSpwanPositions:
   - {fileID: 3428413636767814897}
+  damageAmount: 2
 --- !u!1 &1835983567824288
 GameObject:
   m_ObjectHideFlags: 0

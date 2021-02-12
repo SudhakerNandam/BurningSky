@@ -286,12 +286,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05257f45bb36c46409264cb373f74a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 100
+  enemyHealth: 200
   healthBar: {fileID: 4931877031781888242}
   bulletSpwanPositions:
   - {fileID: 3643104236807307970}
   - {fileID: 5144104103295716101}
   - {fileID: 1713787211811232933}
+  damageAmount: 20
 --- !u!1 &1813772808249330
 GameObject:
   m_ObjectHideFlags: 0
