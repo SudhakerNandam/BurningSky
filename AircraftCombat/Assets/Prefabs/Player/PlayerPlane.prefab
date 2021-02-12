@@ -329,6 +329,7 @@ MonoBehaviour:
   screenHeightOffset: 0.5
   multiplier: 8
   shieldPowerUpObj: {fileID: 5680559985637842871}
+  damageParticle: {fileID: 0}
 --- !u!54 &9146421214238866187
 Rigidbody:
   m_ObjectHideFlags: 0
