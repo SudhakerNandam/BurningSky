@@ -100,6 +100,8 @@ namespace AirCraftCombat
 
         public void TakeDamage(float damageAmount)
         {
+            if (powerType == PowerUp.Shield)
+                return;
             currentHealth -= damageAmount;
             AirCraftCombatEventHandler.TriggerEvent(EventID.EVENT_ON_UPDATE_PLAYER_HEALTH,(currentHealth / health) );
             CheckDamage();
