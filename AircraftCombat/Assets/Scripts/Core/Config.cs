@@ -2,6 +2,9 @@
 
 namespace AirCraftCombat
 {
+    /// <summary>
+    /// All game related configurations are declared here.
+    /// </summary>
     public class Config
     {
         public static int mainmenuSceneIndex = 0;

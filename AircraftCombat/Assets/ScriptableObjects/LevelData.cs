@@ -20,6 +20,6 @@ namespace AirCraftCombat
         public float randomEnemySpwanWaitTime;
         public int randomEnemeisCount;
         public int targetKills;
-        public List<Formation> formations = new List<Formation>();
+        public List<Formation> formations = new List<Formation>(); // Diffenet enemy formations
     }
 }

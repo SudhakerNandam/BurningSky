@@ -16,10 +16,14 @@ namespace AirCraftCombat
     public class FormationData
     {
         public Formation formation;
-        public PrefabType prefabType;
+        public PrefabType prefabType; // Enemy types [ Small, Medium, Large ]
         public List<FormationPoints> formationPoints = new List<FormationPoints>(); 
     }
 
+    /// <summary>
+    /// These are enemy formation positions.
+    /// Like: Left Corner, Right Corner, Triangle etc
+    /// </summary>
     [System.Serializable]
     public class FormationPoints
     {

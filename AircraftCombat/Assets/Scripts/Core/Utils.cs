@@ -5,6 +5,9 @@ using System;
 
 namespace AirCraftCombat
 {
+    /// <summary>
+    ///  All in game Utils method are declared here.
+    /// </summary>
     public class Utils
     {
         public static void Log(object msg)

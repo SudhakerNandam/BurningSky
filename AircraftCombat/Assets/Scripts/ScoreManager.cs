@@ -26,6 +26,9 @@ namespace AirCraftCombat
 
         #region Private Methods
 
+        /// <summary>
+        /// On each enemy kill the scores will update.
+        /// </summary>
         private void UpdateScores()
         {
             ++Config.currentScore;
@@ -46,6 +49,9 @@ namespace AirCraftCombat
             }
         }
 
+        /// <summary>
+        /// On Gamecomplete updates highest unlocked level if current level index is equal to highest unlocked level.
+        /// </summary>
         private void UpdateHighestUnlockedLevel()
         {
             if (Config.highestUnlockedLevelIndex >= Config.totalLevels - 1)

@@ -35,6 +35,9 @@ namespace AirCraftCombat
             UpdateLevelButtonState();
         }
 
+        /// <summary>
+        /// It will activate unlocked level button.so the player can able to select the level. 
+        /// </summary>
         private void UpdateLevelButtonState()
         {
             for(int i = 0; i <= Config.highestUnlockedLevelIndex; ++i)

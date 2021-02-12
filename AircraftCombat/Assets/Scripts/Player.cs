@@ -14,6 +14,7 @@ namespace AirCraftCombat
         [SerializeField] private float screenHeightOffset = 0.5f;
         [SerializeField] private float multiplier = 8f;
         [SerializeField] private GameObject shieldPowerUpObj;
+        [SerializeField] private ParticleSystem damageParticle;
 
         private Rigidbody rgBody = null;
         private Camera mainCamera = null;
@@ -68,12 +69,24 @@ namespace AirCraftCombat
         {
             if (Config.isGameComplete)
                 return;
-            var bullet = other.GetComponent<Bullet>();
-            if (bullet && bullet.Type == BulletType.Enemy)
+
+            if(other.tag == AircraftCombatStrings.EnemyBulletTag)
             {
-                TakeDamage(bullet.Damage);
-                bullet.KillMe();
+                var bullet = other.GetComponent<Bullet>();
+                if (bullet && bullet.Type == BulletType.Enemy)
+                {
+                    TakeBulletDamage(bullet);
+                }
             }
+            else if(other.tag == AircraftCombatStrings.EnemyPlaneTag)
+            {
+                var enemy = other.GetComponent<Enemy>();
+                if (enemy)
+                {
+                    TakeEnemyDamage(enemy);
+                }
+            }
+           
         }
 
         #endregion
@@ -175,6 +188,18 @@ namespace AirCraftCombat
         private void ToggleShiledPowerUpObj(bool flag)
         {
             shieldPowerUpObj.SetActive(flag);
+        }
+
+        private void TakeBulletDamage(Bullet bullet)
+        {
+            TakeDamage(bullet.Damage);
+            bullet.KillMe();
+        }
+
+        private void TakeEnemyDamage(Enemy enemy)
+        {
+            TakeDamage(enemy.Damage);
+            enemy.KillMe();
         }
 
         #endregion

@@ -10,6 +10,7 @@ namespace AirCraftCombat
         [SerializeField] private float enemyHealth;
         [SerializeField] private HealthBar healthBar;
         [SerializeField] private List<Transform> bulletSpwanPositions;
+        [SerializeField] private float damageAmount = 5f;
 
         private float speed = 1.5f;
 
@@ -25,6 +26,7 @@ namespace AirCraftCombat
 
         private bool isHealthBarEnabled = false;
 
+        public float Damage { get { return damageAmount; } }
         public PrefabType Type { get { return prefabType; } set { prefabType = value; } }
 
         #region Unity Methods
@@ -89,6 +91,11 @@ namespace AirCraftCombat
 
         }
 
+        public void KillMe()
+        {
+            gameObject.SetActive(false);
+        }
+
         #endregion
 
         #region Private Methods
@@ -122,7 +129,7 @@ namespace AirCraftCombat
             {
                 AirCraftCombatEventHandler.TriggerEvent(EventID.EVENT_ON_ENEMY_KILL, prefabType);
                 SoundManager.instance.PlayerExplosionSound();
-                gameObject.SetActive(false);
+                KillMe();
             }
         }
 

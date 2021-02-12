@@ -31,20 +31,20 @@ namespace AirCraftCombat
 
         void Start()
         {
-            pooleditems = new List<Bullet>();
-            foreach (BulletItem item in itemsToPool)
-            {
-                for (int i = 0; i < item.amountToPool; i++)
-                {
-                    pooleditems.Add(GetBulletBehaviour(item.type, item.objectToPool));
-                }
-            }
+            CreatePoolItems();
         }
 
         #endregion
 
         #region Public Methods
 
+
+        /// <summary>
+        /// This wil return Bullet. if it is present in the pool,
+        /// Otherwise creates one and adds to pool and returns.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public Bullet Spawn(BulletType type)
         {
             var items = pooleditems.Where(x => x.Type == type && !x.gameObject.activeInHierarchy);
@@ -73,6 +73,22 @@ namespace AirCraftCombat
         #endregion
 
         #region Private Methods
+
+        /// <summary>
+        /// On Start it will instantiate bullets and to the pool.
+        /// By default it will be Inactive.
+        /// </summary>
+        private void CreatePoolItems()
+        {
+            pooleditems = new List<Bullet>();
+            foreach (BulletItem item in itemsToPool)
+            {
+                for (int i = 0; i < item.amountToPool; i++)
+                {
+                    pooleditems.Add(GetBulletBehaviour(item.type, item.objectToPool));
+                }
+            }
+        }
 
         private Bullet GetBulletBehaviour(BulletType type, GameObject item)
         {

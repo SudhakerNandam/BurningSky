@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+/// <summary>
+///  All in game enums are declared here.
+/// </summary>
 namespace AirCraftCombat.CoreData
 {
     public enum BulletType

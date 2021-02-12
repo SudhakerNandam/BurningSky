@@ -35,6 +35,10 @@ namespace AirCraftCombat
 
         #region Private Methods
 
+        /// <summary>
+        ///  Detects player touch inputs, to fetch the direction to move.
+        ///  Trigger the move direction event.
+        /// </summary>
         private void PlayerInput()
         {
             if (Input.GetMouseButtonDown(0))
